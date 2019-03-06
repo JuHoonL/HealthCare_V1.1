@@ -1,0 +1,141 @@
+@charset "UTF-8";
+  	* {
+  		box-sizing: border-box;
+  		-webkit-box-sizing: border-box;
+  		-moz-box-sizing: border-box;
+  	}
+  	
+  	html {
+  	}
+  	
+  	body {
+  		margin: 1px auto;
+  		max-width :80%;
+  	}
+  	
+  	header {
+  		display: flex;
+  		background-color: #343a40;
+  		padding : 15px;
+  		
+  	}
+  	
+  	#hometitle {
+  		background-image:url('/img/logo.png');
+  	}
+  	
+  	.login-title {
+  		margin-left: auto;
+  		display:flex;
+  		align-items: center;
+		justify-content: center;
+  	}
+  	
+  	label, input {
+  		width: 30%;
+  	}
+  	
+  	.flex-login-title {
+  		margin: 5px;
+		color: white;
+		text-decoration: none;
+  	}
+  	
+  	#login-userid {
+  		font-size: 15pt;
+  	}
+  	
+  	li div a {
+  		display: block;
+  		margin: 10px;
+  	}
+  	
+  	#welcome-text {
+  		margin-left: -5px;
+  		margin-rigth: 8px;
+  	}
+  	
+  	li.dropdown {
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		min-width: 70px;
+		background-color: lightgray;
+		color: yellow;
+		font-weight: bold;
+		z-order: 10;
+		font-size: 12pt;
+		left: 1460px;
+		padding: 10px;
+	}
+	
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+	
+	#btn-logout {
+		background-color: silver;
+		color: black;
+	}
+  	
+  	#main-section {
+  		display: flex;
+  		height: 800px;
+  		margin: 0px auto;
+  		over-flow: hidden;
+  		width:100%;
+  	}
+  	
+  	.background {
+  		margin: 0px auto;
+  		background-image:url("<c:url value='/img/new03.png' />");
+  		background-size: cover;
+  		background-repeat: no-repeat;
+  		text-align: center;
+  		width:100%;
+  	}
+  	
+  	.container-box{
+  		border:4px solid white;
+   	/*	background-color: white; */
+  		min-height: 100px;
+  		max-width: 80%;
+  		width: 850px;
+  		height: 650px;
+  		display: inline-block;
+  		margin: 90px;
+  	}
+  	
+  	h4{
+  		padding-top: 0px;
+  		font-size:40px;
+
+  	}
+
+  	.button1 {
+    color: #fff;
+    background-color: #f4623a;
+    border-color: #f4623a;
+
+
+	}
+	
+	.button2 {
+    padding: 1.25rem 2.25rem;
+    font-size: .85rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10rem;
+	}
+	
+	a {
+	    text-decoration: none;
+	}
+	
+	#icon{
+		height: 400px;
+	}
+	

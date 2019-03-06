@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  	$(function(){
+		 $("#login-button").click(function(){
+			 var userId = $("#userId").val();
+			 var password = $("#password").val();
+			 
+			 if(userId == "") {
+				 alert("Id를 입력해주세요")
+				 $("#userId").focus();
+				 return false;
+			 }
+			 if(password == "") {
+				 alert("비밀번호를 입력해주세요")
+				 $("#password").focus();
+				 return false;
+			 }
+			 
+			 $("form").submit();
+		 })
+		 
+		$(function(){
+			 if("${MSG}" == "true") {
+				 alert("로그인 되었습니다.")
+			 } else if("%{MSG}" == "false"){
+				 alert("아이디나 비밀번호를 다시 확인해 주세요.")
+			 }
+		 })
+		 
+		 $("#btn-logout").click(function(){
+			 location.href="<c:url value='/logout' />"
+		 })
+				 
+	})
+</script>
+<header>
+	<a id="hometitle" href="${rootPath}/" ><img src="img/logo.png"></a>
+	<c:if test="${empty LOGIN}">
+		<div class="login-title">
+		<form action="login" method="POST">
+			<label for="userId" class="flex-login-title">Id : </label> 
+			<input type ="text" id="userId" name="userId" />
+			
+	    	<label for="password" class="flex-login-title">PassWord : </label> 
+	    	<input type="password" id="password" name="password" />
+	    	<a href="#" id="login-button" class="flex-login-title">로그인</a>
+		</form>
+		<a href="${rootPath}/user_join" class="flex-login-title">회원가입</a>
+		</div>
+	</c:if>
+	<c:if test="${LOGIN ne null}">
+		<div class="login-title">
+			<ul>
+				<li class="dropdown">
+					<a id="login-userid" href="javascript:void(0)" class="flex-login-title">${LOGIN.userName}</a>
+					<a id="welcome-text" class="flex-login-title">님 반갑습니다.</a>
+					<div class="dropdown-content">
+						<a href="#" >* 운동메모</a>
+						<a href="#"  id ="mypage">* 나의정보관리</a>
+					</div>
+				</li>
+			</ul>
+			<button type="button" id="btn-logout" class="flex-login-title">로그아웃</button>
+		</div>
+	</c:if>
+</header>

@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<link rel="stylesheet" href="<c:url value='/css/food-select.css' />">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  	$(function(){
+  		
+  		$(".cate-name").click(function(){
+  			let cate_code = $(this).attr("data-d-catecode")
+  			
+  			$.ajax({
+  				url:"<c:url value='/food_select_ajax' />",
+  				method:"POST",
+  				data:{cate_code:cate_code},
+  				success:function(result){
+	  				$("#minor-menu").html(result)
+  				},
+  				error:function(){
+  					alert("서버와 통신 안됌")
+  				}
+  			})
+  		})
+  		
+  		$("#button-confirm").click(function(){
+  			var kcal = $("#T-kcal").text()
+  			location.href="<c:url value='/sports?totalKcal=" + kcal + "' />"
+  		})
+  			
+	})
+</script>
+<section  id="food-section">
+<div id="all-div">
+	<div id="major-menudiv">
+		<c:forEach items="${ALLFOODCATE}" var="FoodVO">
+			<a href="javascript:void(0)" class="cate-name" data-d-catecode="${FoodVO.cate_code}">${FoodVO.cate}</a><br/>
+		</c:forEach>
+	</div>
+<article id="body">
+<div id="minor-menu"></div>
+<div id="calcekcal">
+	<div class="calcekcal"></div>
+	<div class="totalkcal">
+		<p>칼로리의 합</p>
+		<span>= </span><span id="T-kcal">0</span><span>kcal</span>
+	</div>
+</div>
+<div id="calce-button"><button type="button" id="button-confirm">확인</button></div>
+</article>
+</div>
+
+</section>
