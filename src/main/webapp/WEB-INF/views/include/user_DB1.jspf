@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#btn_update").click(function(){
+		$("form").submit()
+	})
+	
+	$("#btn_delete").click(function(){
+		location.href="<c:url value='user_delete' /> "
+	})
+	
+})
+
+</script>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>업데이트</title>
+<link rel="stylesheet" href="<c:url value='/css/home2.css' />">
+<style>
+	
+	#allbody {
+		height: 750px;
+		overflow: auto;
+		background-color: #f7fdbb;
+	}
+	
+	.card-header{
+	padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125)
+	}
+	.card-body{
+	height:600px;
+	margin-top: 100px;
+	flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: #d6e8fa;
+    max-width:45rem;
+    width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 3px solid #ccc;
+    border-style: double;
+	}
+	
+	.boxclass{
+		width: 100%;
+		border: 1px solid #ced4da;
+		padding: 10px;
+		height: 45px;
+	}
+	
+	.boxclass2{
+		width: 100px;
+		border: 1px solid #ced4da;
+		padding: 10px;
+		float:right;
+		margin-right:5px;
+		
+	}
+	.dark{
+	background-color:#343a40;
+	}
+	
+	.font{
+		font-size: 20px;
+	}
+	
+	#password {
+		display: none;
+	}
+	
+</style>
+
+<section id="allbody">
+
+	<div class="card-body container" >
+	<div class="card-header">회원정보</div>
+	
+	<form  action = "user_update" method="POST">
+	<label for = "id"></label>
+	<input class = "boxclass" type = "hidden" id="id" name ="id" value ="${USER.id}"><br>
+	
+	<label for = "userId" class ="font">아이디</label>
+	<input readonly class = "boxclass" type = "text" id="userId" name ="userId" value ="${USER.userId}"><br>
+	
+	<label for = "userName" class ="font">이름</label>
+	<input class = "boxclass" type = "text" id="userName" name ="userName" value ="${USER.userName}"><br>
+	
+	<label for = "birth" class ="font" >생년월일</label>
+	<input class = "boxclass" type = "text" id="birth" name ="birth" value ="${USER.birth}"><br>
+	
+	<label for = "height" class ="font">키</label>
+	<input class = "boxclass" type = "text" id="height" name ="height" value ="${USER.height}"><br>
+	
+	<label for = "weight" class ="font">몸무게</label>
+	<input class = "boxclass" type = "text" id="weight" name ="weight" value ="${USER.weight}"><br>
+	
+	<label for="activityindex"class ="font">활동지수
+			<select class = "boxclass" id="activityindex"  name="activityindex">
+				<option value="31">평소 운동량이 적은 사람</option>
+				<option value="33">하루 한시간 운동하는 사람</option>
+				<option value="35">하루 두세시간 운동하는 사람</option>
+				<option value="40">힘든 육체노동을 하는 사람</option>
+				<option value="43">전문 운동선수</option>
+			</select><br/>
+	</label><br>
+	
+	<button type="button" id="btn_delete" class="boxclass2">회원탈퇴</button>
+	</form>
+	<button type="button" id="btn_update" class="boxclass2">수정</button>
+	
+	</div>
+
+</section>
+
+

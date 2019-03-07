@@ -30,9 +30,20 @@
   			
 	})
 </script>
+<style>
+	#major-divtext {
+		text-align: center;
+		font-size: 15pt;
+		font-weight: bold;
+		margin-bottom: 10px;
+		background-color: #c7a5cb;
+		color: white;
+	}
+</style>
 <section  id="food-section">
 <div id="all-div">
 	<div id="major-menudiv">
+	<div id="major-divtext"><p>음 식 분 류</p></div>
 		<c:forEach items="${ALLFOODCATE}" var="FoodVO">
 			<a href="javascript:void(0)" class="cate-name" data-d-catecode="${FoodVO.cate_code}">${FoodVO.cate}</a><br/>
 		</c:forEach>

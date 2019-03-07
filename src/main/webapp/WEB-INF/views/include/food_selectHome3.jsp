@@ -49,6 +49,12 @@
 	#T-kcal {
 		font-size: 20pt;
 	}
+	
+	td a {
+		color: black;
+		font-weight: bold;
+	}	
+	
 </style>
 	<c:set var="i" value="0" />
 	<c:set var="j" value="5" />

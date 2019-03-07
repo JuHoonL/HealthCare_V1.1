@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 	#user-field {
 		width: 500px;
@@ -20,7 +15,7 @@
 		text-align: center;
 	}
 	
-	label {
+	label, span {
 		display: block;
 		width: 150px;
 		float: left;
@@ -35,7 +30,7 @@
 	}
 	
 	#btn-join {
-		margin-left : 15px;
+		margin-left : 10px;
 	}
 	
 	.button-join {
@@ -47,13 +42,103 @@
 </style>
 <script>
  $(function(){
+	 
+	 $("#btn-join").click(function(){
+		var userId = $("#userId").val()
+		var userName = $("#userName").val()
+		var password = $("#password").val()
+		var re_password = $("#re_password").val()
+		var birth = $("#birth").val()
+		var height = $("#height").val()
+		var weight = $("#weight").val()
+		var activityindex = $("#activityindex").val()
+		 
+		if(userId == "") {
+			alert("id를 반드시 입력하세요")
+			$("#userId").focus();
+			return false;
+		} 
+		if(userName == "") {
+			alert("이름을 반드시 입력하세요")
+			$("#userName").focus();
+			return false;
+		}
+		if(password == "") {
+			alert("비밀번호를 반드시 입력하세요")
+			$("#password").focus();
+			return false;
+		}
+		if(re_password == "") {
+			alert("비밀번호 확인을 반드시 입력하세요")
+			$("#re_password").focus();
+			return false;
+		}
+		if(birth == "") {
+			alert("생년월일을 반드시 입력하세요")
+			$("#birth").focus();
+			return false;
+		}
+		if(height == "") {
+			alert("키를 반드시 입력하세요")
+			$("#height").focus();
+			return false;
+		}
+		if(weight == "") {
+			alert("몸무게를 반드시 입력하세요")
+			$("#weight").focus();
+			return false;
+		}
+		if(m_password != m_re_password) {
+			alert("비밀번호와 확인이 일치하지 않습니다")
+			$("#m_password").val("")
+			$("#m_re_password").val("")
+			$("#m_password").focus()
+			return false;
+		}
+		$("form").submit()
+	 })
+	 
+	 
+	 $("#userId").blur(function(event){
+		
+		event.preventDefault()
+		
+		let userid= $("#userId").val()
+
+		if(userid == "") {
+			alert("아이디를 입력하세요")
+			
+			return false;
+		}
+		
+		$.ajax({
+			
+			url : "<c:url value='/id_check' />",
+			method:"POST",
+			data : {userId:userid},
+			success:function(result) {
+				alert(result)
+				if(result.equalsIgnoreCase("사용할 수 있는 ID 입니다")){
+					$("#password").focus();
+				}
+				if(result.equalsIgnoreCase("이미 등록된 ID 입니다")){
+					$("#userId").val("");
+					$("#userId").focus();
+				}
+			},
+			error:function(){
+				alert("서버오류")
+			}
+		})
+	})
+	 
+	
 	 $("#btn-reset").click(function(){
 		 location.href="${pageContext.request.contextPath}/"
 	 })
  })
 </script>
 </head>
-<body>
 	<section>
 		<form action="user_join" method="POST">
 		<fieldset id="user-field">
@@ -68,6 +153,10 @@
 			
 			<label for="password">비밀번호</label>
 			<input type="password" id="password" name="password"
+			placeholder="비밀번호를 입력하세요" ><br/>
+			
+			<label for="re_password">비밀번호확인</label>
+			<input type="password" id="re_password" name="re_password"
 			placeholder="비밀번호를 입력하세요" ><br/>
 			
 			<label for="birth">생년월일</label>
@@ -97,6 +186,3 @@
 		</fieldset>
 		</form>
 	</section>
-
-</body>
-</html>

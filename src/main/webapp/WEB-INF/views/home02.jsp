@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="<c:url value='/css/home2.css' />">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
-<%@ include file="/WEB-INF/views/include/header.jspf" %>
+<%@ include file="/WEB-INF/views/include/header2.jspf" %>
 <c:if test="${BODY == 'MAIN'}">
 	<%@ include file="/WEB-INF/views/include/main.jspf" %>
 </c:if>
@@ -19,6 +19,9 @@
 </c:if>
 <c:if test="${BODY == 'SPORTS'}">
 	<%@ include file="/WEB-INF/views/include/sports_list.jsp" %>
+</c:if>
+<c:if test="${BODY == 'USERDB'}">
+	<%@ include file="/WEB-INF/views/include/user_DB1.jspf" %>
 </c:if>
 </body>
 </html>

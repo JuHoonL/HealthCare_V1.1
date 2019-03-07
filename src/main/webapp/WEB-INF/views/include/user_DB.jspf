@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<style>
+	
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+
+
+.btn-db {
+	border-radius: 10px;
+	background-color: gray;
+	color: white;
+	margin: 5px;
+	font-weight: bold;
+	position: relative;
+	left: 150px;
+	height: 30px;
+	width: 100px;
+	
+}
+
+.btn-db:hover{
+	color: black;
+}
+
+
+#div-userDB {
+	
+	width: 150px;
+	margin: 1px auto;
+	display: inline-block;
+	text-align: right;
+}
+
+#div-userDB2 {
+
+	width: 300px;
+	margin: 1px auto;
+	display: inline-block;
+}
+
+.div-userDB{
+	align-content: center;
+}
+h3{	
+	padding: auto;
+	display: inline-block;
+}
+
+#div-main {
+	width: 500px;
+	margin: 1px auto;
+}
+
+</style>
+</head>
+<section>
+
+<div id="div-main">
+<div id="div-userDB" class="div-userDB">
+	<h3>ID :</h3><br/><br/>
+	<h3>이름 :</h3><br/><br/>
+	<h3>비밀번호 : </h3><br/><br/>
+	<h3>생년월일 : </h3><br/><br/>
+	<h3>키 : </h3><br/><br/>
+	<h3>몸무게 : </h3><br/><br/>
+	<h3>활동지수 : </h3>
+</div>
+<div id="div-userDB2" class="div-userDB">
+	<h3> ${USER.userId }</h3><br/><br/>
+	<h3> ${USER.userName }</h3><br/><br/>
+	<h3> ${USER.password }</h3><br/><br/>
+	<h3> ${USER.birth }</h3><br/><br/>
+	<h3> ${USER.height }</h3><br/><br/>
+	<h3> ${USER.weight }</h3><br/><br/>
+	<h3> ${USER.activityindex }</h3>
+</div>	
+
+
+<div id="div-button">
+	<button type="button" id="btn-update" class="btn-db">정보수정</button>
+	<button type="button"id="btn-delete" class="btn-db">회원탈퇴</button>
+</div>
+</div>
+</section>
+
+

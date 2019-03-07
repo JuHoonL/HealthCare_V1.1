@@ -26,7 +26,7 @@
 		$(function(){
 			 if("${MSG}" == "true") {
 				 alert("로그인 되었습니다.")
-			 } else if("%{MSG}" == "false"){
+			 } else if("${MSG}" == "false"){
 				 alert("아이디나 비밀번호를 다시 확인해 주세요.")
 			 }
 		 })
@@ -34,9 +34,39 @@
 		 $("#btn-logout").click(function(){
 			 location.href="<c:url value='/logout' />"
 		 })
-				 
+		
+		 $("#mypage").click(function(){
+			 location.href="<c:url value='/user_DB' />"
+		 })
 	})
 </script>
+<style>
+	.login-title {
+		flex-direction: row;
+	}
+	
+	#login-id {
+		flex: 3;
+		text-align: center;
+	}
+	
+	#header-btn {
+		flex: 1
+	}
+	
+	. header-btn {
+		
+	}
+	
+	.flex-login-title {
+		width: 100px;
+	}
+	
+	#mypage {
+		color: black;
+	}
+	
+</style>
 <header>
 	<a id="hometitle" href="${rootPath}/" ><img src="img/logo.png"></a>
 	<c:if test="${empty LOGIN}">
@@ -54,16 +84,18 @@
 	</c:if>
 	<c:if test="${LOGIN ne null}">
 		<div class="login-title">
-			<ul>
-				<li class="dropdown">
-					<a id="login-userid" href="javascript:void(0)" class="flex-login-title">${LOGIN.userName}</a>
-					<a id="welcome-text" class="flex-login-title">님 반갑습니다.</a>
-					<div class="dropdown-content">
-						<a href="#"  id ="mypage">* 나의정보관리</a>
-					</div>
-				</li>
-			</ul>
-			<button type="button" id="btn-logout" class="flex-login-title">로그아웃</button>
+			<div id="login-id">
+				<ul>
+					<li class="dropdown">
+						<a id="login-userid" class="flex-login-title">${LOGIN.userName}</a>
+						<a id="welcome-text" class="flex-login-title">님 반갑습니다.</a>
+					</li>
+				</ul>
+			</div>
+			<div id="header-btn">
+				<button type="button" id="mypage" class="flex-login-title header-btn">내정보관리</button>
+				<button type="button" id="btn-logout" class="flex-login-title  header-btn">로그아웃</button>
+			</div>
 		</div>
 	</c:if>
 </header>

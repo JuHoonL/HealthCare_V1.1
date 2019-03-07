@@ -29,6 +29,7 @@ public class KcalService {
 			float floatKal = Float.valueOf(Kal);
 			
 			int time = Math.round(floatKal/intkg);
+			String s = "";
 			
 			switch(i) {
 				case 0 : 
@@ -89,16 +90,16 @@ public class KcalService {
 		int length = active.length;
 		
 		String sportsList = "";
+		int n1 = Integer.valueOf(num);
 		
-		for(int i = 0; i < length ; i ++) {
-			float fActiver = Float.valueOf(active[i]);
+			float fActiver = Float.valueOf(active[n1]);
 			float intkg = (float)(Integer.valueOf(Kg)*3.5*fActiver)/200;
 			
 			float floatKal = Float.valueOf(Kal);
 			
 			int time = Math.round(floatKal/intkg);
 			
-			switch(Integer.valueOf(num)) {
+			switch(n1) {
 				case 0 : 
 					sportsList = "걷기운동은 " + time + "분이 필요합니다.";
 					return sportsList;
@@ -135,7 +136,7 @@ public class KcalService {
 				case 11 :
 					sportsList = "계단운동은 " + time + "분이 필요합니다.";
 					return sportsList;
-			}
+			
 		}
 		return sportsList;
 	}
