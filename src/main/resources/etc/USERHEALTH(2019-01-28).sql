@@ -3,16 +3,26 @@ CREATE TABLE tbl_user (
     id              NUMBER             PRIMARY KEY,
     userId          nVARCHAR2(30)      NOT NULL,
 	userName        nVARCHAR2(30)      NOT NULL,
-	password        nVARCHAR2(30)      NOT NULL,
+	password        nVARCHAR2(255)      NOT NULL,
     birth           VARCHAR2(10)       NOT NULL,
 	height          nVARCHAR2(30)      NOT NULL,
 	weight          nVARCHAR2(30)      NOT NULL,
 	activityindex   nVARCHAR2(30)      NOT NULL
 );
 
+DESC tbl_user;
+
+commit;
+
+ALTER TABLE tbl_user MODIFY password nVARCHAR2(255);
+
 DROP TABLE tbl_user;
 
 CREATE SEQUENCE SEQ_USER START WITH 1 INCREMENT BY 1;
+
+DROP SEQUENCE SEQ_USER;
+
+Select SEQ_USER.nextval FROM DUAL;
 
 CREATE TABLE tbl_kcal (
     id              NUMBER             PRIMARY KEY,
