@@ -14,9 +14,9 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		height: 750px;
+		height: 780px;
 		overflow: auto;
-		background-color: #f7fdbb;
+		background-color: #dededc;
 	}
 	
 	#view-kcal {
@@ -59,7 +59,8 @@
 	
 	#btn-submit {
 		width: 30%;
-		background-color: #d6e8fa;
+		background-color: #333333;
+		color: white;
 	}
 	
 	.btn-re{
@@ -73,7 +74,8 @@
 	#btn-return {
 		width: 20%;
 		height: 50px;
-		background-color: #d6e8fa;
+		background-color: #333333;
+		color: white;
 	}
 
 	#view-list1{
@@ -150,7 +152,7 @@ $(function(){
 					</select><br />
 					
 					<label></label>
-				<button type="button" id="btn-submit" class="button-submit">확인</button>
+				<button type="button" id="btn-submit" class="button-submit">확  인</button>
 				
 			</fieldset>
 		</form>

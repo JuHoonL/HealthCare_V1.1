@@ -3,9 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
+
+	section {
+		margin-top: 50px;
+		width: 100%;
+		height: 100%;
+	}
+
 	#user-field {
-		width: 500px;
+		width: 30%;
 		margin: 10px auto;
+		height: 50%;
 	}
 	
 	legend {
@@ -15,22 +23,24 @@
 		text-align: center;
 	}
 	
-	label, span {
+	label {
 		display: block;
 		width: 150px;
 		float: left;
 		text-align: right;
-		margin: 8px;
+		margin: 10px;
 	}
 	
 	input, select {
 		border: 1px soild lightgray;
-		margin: 8px;
+		margin: 10px;
 		margin-left: 15px;
+		height: 25px;
+		width: 50%;
 	}
 	
 	#btn-join {
-		margin-left : 10px;
+		margin-left : 15px;
 	}
 	
 	.button-join {

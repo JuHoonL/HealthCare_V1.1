@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 	#food-section {
-		padding: 5px;
 	}
 	
 	#all-div {
@@ -13,31 +12,46 @@
 	#major-menudiv{
 		float: left;
 		width : 20%;
-		height: 750px;
+		height: 780px;
 		font-size:15pt;
 		text-decoration: none;
 		display: flex;
 		flex-direction: column;
-		background-color: #f7fdbb;
+		background-color: #dededc;
 		
+		
+	}
+	
+	#major-divtext {
+		text-align: center;
+		font-size: 15pt;
+		font-weight: bold;
+		margin-bottom: 10px;
+		background-color: #161f44;
+		color: white;
+		flex: 1;
+	}
+	
+	#major-cate {
 		overflow: scroll; 
 		overflow-x: hidden;
 		overflow-y: auto;
+		flex: 9;
+		text-align: center;
 	}
 	
 	.cate-name {
 		display: inline-block;
-		text-align: center;
-		color: black;
+		color: #220A40;
 		font-weight: bold;
-		
+		margin: 12px 0px;
 	}
 
 	article{
 		display: flex;
 		flex-direction: column;
 		width : 100%;
-		height: 750px;
+		height: 780px;
 	}
 
 	#minor-menu{
@@ -45,7 +59,7 @@
 		overflow: scroll; 
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-color: #f7fdbb;
+		background-color: #dededc;
 	}
 
 	#calcekcal{
@@ -56,19 +70,26 @@
 		color: green;
 		font-size: 13pt;
 		padding: 13px ;
-		background-color: #f7fdbb;
+		background-color: #dededc;
+	}
+
+	#minor-menu td {
+		background-color: #b8d7d4;
 	}
 	
 	.calcekcal {
 		overflow: auto;
 		flex: 7;
 		padding-right: 10px;
+		font-weight: bold;
+		margin-right: 25px;
 	}
 	
 	.totalkcal {
 		flex: 1;
 		float:right;
 		color: red;
+		
 	}
 	
 	table {
@@ -92,26 +113,26 @@
 		display : inline-block;
 	}
 	
-	#Tkcal {
-		display: block;
-		float:right;
-		margin: 9px;
+	#T-kcal {
 		font-size: 20pt;
+		font-weight: bold;
 	}
 			
 	#calce-button {
 		height:50px;
 		width: 450px;
 		margin: 0px auto;
-		padding-top: 12px;
-		background-color: #f7fdbb;
+		padding-top: 5px;
+		background-color: #dededc;
 		width:100%;
 	}
 	
 	#button-confirm {
 		width: 50%;	
 		margin-left: 330px;
-		background-color: #d6e8fa;
+		background-color: #333333;
+		color:white;
+		padding: 5px;
 	}
 
 	

@@ -29,8 +29,6 @@ public class UserController {
 		
 		UserVO sVO = uS.user_FindByUserId(vo.getUserId());
 		
-		System.out.println(sVO);
-		
 		String retMsg = "";
 		if(sVO == null) {
 			retMsg = "false";
@@ -112,6 +110,8 @@ public class UserController {
 		vo.setPassword(uservo.getPassword());
 		
 		uS.user_Update(vo); 
+		
+		session.setAttribute("LOGIN",vo);
 		
 		return "redirect:home2";
 	}

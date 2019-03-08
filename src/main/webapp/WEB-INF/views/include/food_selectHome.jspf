@@ -30,23 +30,15 @@
   			
 	})
 </script>
-<style>
-	#major-divtext {
-		text-align: center;
-		font-size: 15pt;
-		font-weight: bold;
-		margin-bottom: 10px;
-		background-color: #c7a5cb;
-		color: white;
-	}
-</style>
 <section  id="food-section">
 <div id="all-div">
 	<div id="major-menudiv">
 	<div id="major-divtext"><p>음 식 분 류</p></div>
+	<div id="major-cate">
 		<c:forEach items="${ALLFOODCATE}" var="FoodVO">
 			<a href="javascript:void(0)" class="cate-name" data-d-catecode="${FoodVO.cate_code}">${FoodVO.cate}</a><br/>
 		</c:forEach>
+	</div>
 	</div>
 <article id="body">
 <div id="minor-menu"></div>
@@ -57,7 +49,7 @@
 		<span>= </span><span id="T-kcal">0</span><span>kcal</span>
 	</div>
 </div>
-<div id="calce-button"><button type="button" id="button-confirm">확인</button></div>
+<div id="calce-button"><button type="button" id="button-confirm">확  인</button></div>
 </article>
 </div>
 

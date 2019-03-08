@@ -46,10 +46,6 @@
 	})
 </script>
 <style>
-	#T-kcal {
-		font-size: 20pt;
-	}
-	
 	td a {
 		color: black;
 		font-weight: bold;
