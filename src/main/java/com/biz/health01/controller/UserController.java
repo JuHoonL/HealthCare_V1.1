@@ -79,9 +79,9 @@ public class UserController {
 		
 		UserVO vo = uS.user_FindByUserId(userId);
 		
-		if(vo == null) ret = "사용할 수 있는 ID 입니다";
+		if(vo == null) ret = "true";
 		
-		else ret = "이미 등록된 ID 입니다";
+		else ret = "false";
 		
 		return ret;
 	}

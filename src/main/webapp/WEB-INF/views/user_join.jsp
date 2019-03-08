@@ -127,12 +127,16 @@
 			method:"POST",
 			data : {userId:userid},
 			success:function(result) {
-				alert(result)
-				if(result.equalsIgnoreCase("사용할 수 있는 ID 입니다")){
-					$("#password").focus();
+				
+				if(result=="true"){
+					$(".errorMsg").css("display","block")
+					$("#errorMessage").text("사용할 수 있는 ID 입니다.")
+					$("#userName").focus();
 				}
-				if(result.equalsIgnoreCase("이미 등록된 ID 입니다")){
-					$("#userId").val("");
+				if(result=="false"){
+					$(".errorMsg").css("display","block")
+					$(".errorMsg").text("이미 등록된 ID 입니다")
+		 			$("#userId").val("");
 					$("#userId").focus();
 				}
 			},
@@ -148,6 +152,14 @@
 	 })
  })
 </script>
+<style>
+	.errorMsg {
+		display: none;
+		margin-left: 190px;
+		color: red;
+		font-weight: bold;
+	}
+</style>
 </head>
 	<section>
 		<form action="user_join" method="POST">
@@ -156,6 +168,8 @@
 			<label for="userId">ID</label>
 			<input type="text" id="userId" name="userId"
 			placeholder="아이디를 입력하세요" ><br/>
+			
+			<span id="errorMessage" class="errorMsg"></span>
 		
 			<label for="userName">이름</label>
 			<input type="text" id="userName" name="userName"

@@ -38,6 +38,11 @@
 		overflow-y: auto;
 		flex: 9;
 		text-align: center;
+		-ms-overflow-style: none;
+	}
+	
+	::-webkit-scrollbar {
+		display:none;
 	}
 	
 	.cate-name {
@@ -60,6 +65,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		background-color: #dededc;
+		border-left: 3px solid #ccc;
 	}
 
 	#calcekcal{
@@ -67,6 +73,7 @@
 		flex-direction: row;
 		height: 130px;
 		border-top: 3px solid #ccc;
+		border-left: 3px solid #ccc;
 		color: green;
 		font-size: 13pt;
 		padding: 13px ;
@@ -125,6 +132,7 @@
 		padding-top: 5px;
 		background-color: #dededc;
 		width:100%;
+		border-left: 3px solid #ccc;
 	}
 	
 	#button-confirm {
