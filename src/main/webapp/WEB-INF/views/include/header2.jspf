@@ -23,6 +23,10 @@
 			 $("form").submit();
 		 })
 		 
+		$("#password-change").click(function(){
+			location.href="<c:url value='/confirm_pw' />"
+		})
+		 
 		$(function(){
 			 if("${MSG}" == "true") {
 				 alert("로그인 되었습니다.")
@@ -66,6 +70,10 @@
 		color: black;
 	}
 	
+	#password-change {
+		color: black;
+	}
+	
 </style>
 <header>
 	<a id="hometitle" href="${rootPath}/" ><img src="img/logo.png"></a>
@@ -93,6 +101,7 @@
 				</ul>
 			</div>
 			<div id="header-btn">
+				<button type="button" id="password-change" class="flex-login-title header-btn">비밀번호 변경</button>
 				<button type="button" id="mypage" class="flex-login-title header-btn">내정보관리</button>
 				<button type="button" id="btn-logout" class="flex-login-title  header-btn">로그아웃</button>
 			</div>

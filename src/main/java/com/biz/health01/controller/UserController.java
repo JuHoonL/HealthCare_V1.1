@@ -130,5 +130,57 @@ public class UserController {
 		return "redirect:home2";
 	}
 	
+	@RequestMapping(value="confirm_pw", method=RequestMethod.GET)
+	public String password_confirm(String PASSMSG, Model model, HttpSession session) {
+		
+		model.addAttribute("BODY","CHPASS");
+		
+		UserVO uservo = (UserVO)session.getAttribute("LOGIN");
+		
+		uservo = uS.user_FindByUserId(uservo.getUserId());
+		
+		model.addAttribute("USER",uservo);
+		
+		model.addAttribute("PASSMSG",PASSMSG);
+		
+		return "home02";
+	}
+	
+	@RequestMapping(value="password_check", method=RequestMethod.POST)
+	public String password_check(@ModelAttribute UserVO vo, Model model, HttpSession session) {
+		
+		UserVO uservo = uS.user_FindByUserId(vo.getUserId());
+		
+		if(passwordEncoder.matches(vo.getPassword(),uservo.getPassword())) {
+			return "redirect:change_pw";
+		} else {
+			model.addAttribute("PASSMSG","false");
+			return "redirect:confirm_pw";
+		}
+	}
+	
+	@RequestMapping(value="change_pw", method=RequestMethod.GET)
+	public String password_change(Model model, HttpSession session) {
+		
+		model.addAttribute("BODY","CHPASS2");
+		
+		return "home02";
+	}
+	
+	@RequestMapping(value="change_pw", method=RequestMethod.POST)
+	public String password_change2(@ModelAttribute UserVO vo, Model model, HttpSession session) {
+		
+		UserVO uservo = (UserVO)session.getAttribute("LOGIN");
+		
+		uservo = uS.user_FindByUserId(uservo.getUserId());
+		
+		String bcPassword = passwordEncoder.encode(vo.getPassword());
+		
+		uservo.setPassword(bcPassword);
+		
+		uS.user_Update(uservo);
+		
+		return "redirect:/";
+	}
 	
 }

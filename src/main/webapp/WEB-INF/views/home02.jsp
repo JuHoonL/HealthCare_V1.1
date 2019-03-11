@@ -23,5 +23,11 @@
 <c:if test="${BODY == 'USERDB'}">
 	<%@ include file="/WEB-INF/views/include/user_DB1.jspf" %>
 </c:if>
+<c:if test="${BODY == 'CHPASS'}">
+	<%@ include file="/WEB-INF/views/include/confirm_password.jspf" %>
+</c:if>
+<c:if test="${BODY == 'CHPASS2'}">
+	<%@ include file="/WEB-INF/views/include/password2.jspf" %>
+</c:if>
 </body>
 </html>
